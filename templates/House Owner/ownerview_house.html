@@ -1,0 +1,72 @@
+{% extends "House Owner/ownerhome.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" enctype="multipart/form-data" action="/myapp/ownerview_house_post/">
+    {% csrf_token %}
+      <table class="pull-left">
+        <tr>
+            <td><input type="text" name="search"class="form-control"/></td>
+            <td><input type="submit" value="search"class="btn btn-success"/></td>
+            <td class="pull-right"><a href="/myapp/add_house/"class="btn btn-info">ADD</a> </td>
+
+
+        </tr>
+
+
+    </table>
+
+
+
+  <table class="table table-bordered">
+  <br>
+
+
+
+  <br>
+    <tr>
+      <th scope="col"><strong>Slno</strong></th>
+      <th scope="col"><strong>Home Image</strong></th>
+      <th scope="col"><strong>Token Amount</strong></th>
+      <th scope="col"><strong>Phone No</strong></th>
+      <th scope="col"><strong>Address</strong></th>
+      <th scope="col"><strong>Property Type</strong></th>
+      <th scope="col"><strong>Location</strong></th>
+      <th scope="col"><strong>Period</strong></th>
+      <th scope="col"><strong>About</strong></th>
+      <th scope="col"><strong>Description</strong></th>
+              <th scope="col"><strong>Proof</strong></th>
+
+      <th colspan="2"><strong>Action</strong></th>
+    </tr>
+      {%  for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+        <td>{{ i.id }}<br><img src="{{ i.image }}" height="100"width="200"></td>
+      <td>&nbsp;{{ i.rental_amount }}</td>
+{#      <td><img src="{{ i.proof }}" height="200"width="200"></td>#}
+      <td>&nbsp;{{ i.phoneno }}</td>
+      <td>Place:{{ i.place }}<br>
+          Post:{{ i.post }}<br>
+          Pincode:{{ i.pincode }}<br>
+          District:{{ i.district }}<br></td>
+      <td>&nbsp;{{ i.property_type }}</td>
+      <td><a href="https://www.google.com/maps?q={{ i.latitude }},{{ i.longitude }}" target="_blank">Maps</a></td>
+
+      {% comment %} <td><a href="https://www.maps.google.com/q?={{ i.latitude }},{{i.longitude}}">Maps</a></td> {% endcomment %}
+      <td>&nbsp;{{ i.rental_period }}</td>
+      <td>&nbsp;Sqft:{{ i.area_sqft }}<br>
+           Rooms:{{ i.rooms }}<br>
+           Bathrooms:{{ i.bathrooms }}<br>
+           Furnishing:{{ i.furnishing }}<br>
+           Parking:{{ i.parking }}<br>
+           Kitchen:{{ i.kitchen }}</td>
+      <td>{{ i.description }}</td>
+              <td><a href="{{ i.proof }}">Proof</a> </td>
+
+      <td width="67"><a href="/myapp/edit_house/{{ i.id }}"class="btn btn-success">Edit</a></td>
+      <td width="67"><a href="/myapp/delete_house/{{ i.id }}"class="btn btn-danger">Delete</a></td>
+
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "User/userhome.html" %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/myapp/user_report_post/">
+{% csrf_token %}
+  <table class="pull-left">
+        <tr>
+
+        <td>From</td>
+        <td>
+            <input type="date" name="textfield" id="textfield" class="form-control"required/></td>
+        <td>To</td>
+        <td><input type="date" name="t2"class="form-control"required></td>
+        <td>
+      <input type="submit" name="button" id="button" value="Search"class="btn btn-success" /></td>
+    </tr>
+  </table>
+<br>
+<br>
+<table class="table table-bordered">
+    <tr>
+      <th>Sno</th>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Home</th>
+      <th>Token Amount</th>
+      <th>Status</th>
+     
+    </tr>
+
+    {%  for i in data  %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+        <td>&nbsp;{{ i.REQUEST.USER.name }}</td>
+      <td>&nbsp;<img src="{{ i.REQUEST.HOME.image }}"height="100"width="100"><br><br>
+          Token:{{ i.REQUEST.HOME.rental_amount }}<br>
+          Place:{{ i.REQUEST.HOME.place }}<br>
+          Pincode:{{ i.REQUEST.HOME.pincode }}<br>
+          Post:{{ i.REQUEST.HOME.post }}<br>
+          District:{{ i.REQUEST.HOME.district }}<br>
+          Property Type:{{ i.REQUEST.HOME.property_type }}<br>
+          Period:{{ i.REQUEST.HOME.rental_period }}<br>
+          Sqft:{{ i.REQUEST.HOME.area_sqft }}<br></td>
+      <td>&nbsp;{{ i.amount }}</td>
+      <td>&nbsp;{{ i.status }}</td>
+
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

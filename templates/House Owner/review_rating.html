@@ -1,0 +1,39 @@
+{% extends "House Owner/ownerhome.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/myapp/review_rating_post/">
+    {% csrf_token %}
+  <table class="pull-left">
+    <tr>
+
+        <td>From</td>
+        <td>
+            <input type="date" name="textfield" id="textfield" class="form-control" required/></td>
+        <td>To</td>
+        <td><input type="date" name="t2"class="form-control" required></td>
+        <td>
+      <input type="submit" name="button" id="button" value="Search" class="btn btn-success"/></td>
+    </tr>
+  </table>
+<br>
+<br>
+<table class="table table-bordered">
+    <tr>
+      <td>Sno</td>
+      <td>Date</td>
+      <td>Name</td>
+      <td>Review</td>
+      <td>Rating</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{{ i.USER.name }}</td>
+      <td>&nbsp;{{ i.review }}</td>
+      <td>{{ i.rating }}</td>
+
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "Admin/admin_index.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/myapp/reply_post/">
+    {% csrf_token %}
+    <input type="hidden"name="rid"value="{{ id }}">
+  <table class="table table-bordered">
+    <tr>
+      <td width="142">Reply</td>
+      <td width="232"><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="Submit" id="button" value="Reply" class="btn btn-success"/>
+      </div></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

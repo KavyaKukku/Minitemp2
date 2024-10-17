@@ -1,0 +1,134 @@
+{% extends "House Owner/ownerhome.html" %}
+{% block body %}
+<form action="/myapp/add_house_post/" method="post" enctype="multipart/form-data" id="form1">
+{% csrf_token %}
+  <table class="table table-bordered">
+    <tr>
+      <td width="156">Home Image</td>
+      <td width="353"><label for="img"></label>
+      <input type="file" name="img" id="Img"class="form-control"/></td>
+    </tr>
+    <tr>
+      <td>Token Amount</td>
+     <td><input type="text" name="textfield" id="textfield" class="form-control" required/></td>
+     
+    </tr>
+    <tr>
+      <td>Proof</td>
+      <td><input type="file" name="fileField" id="fileField"class="form-control"  /></td>
+    </tr>
+    <tr>
+      <td>Phone No</td>
+      <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" id="textfield2"class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><label for="textfield3"></label>
+      <input type="text" name="textfield3" id="textfield3"class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td><label for="textfield4"></label>
+      <input type="text" name="textfield4" id="textfield4"class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Pincode</td>
+      <td><label for="textfield5"></label>
+      <input type="text" name="textfield5" id="textfield5" class="form-control"required/></td>
+    </tr>
+    <tr>
+      <td>District</td>
+      <td><label for="textfield6"></label>
+      <input type="text" name="textfield6" id="textfield6"class="form-control" required/></td>
+    </tr>
+ 
+    <tr>
+      <td>Property Type</td>
+    <td><select name="select3"class="form-control" required>
+          <option>Apartment</option>
+          <option>House</option>
+          <option>Villa</option>
+        </select>      </tr>
+    
+    <tr>
+      <td>Rental Period</td>
+      <td><input type="text" name="textfield9" id="textfield9" class="form-control"required/></td>
+    </tr>
+    <tr>
+      <td>Area (sqft)</td>
+      <td><label for="textfield8"></label>
+        <label for="textfield8"></label>
+      <input type="text" name="textfield8" id="textfield8" class="form-control"required/></td>
+    </tr>
+   <tr>
+      <td>Number of rooms</td>
+  	<td>
+  	   <select name="select1"class="form-control" required>
+  	     <option>1</option>
+  	     <option>2</option>
+          <option>3</option>
+           <option>4</option>
+            <option>5</option>
+      </select></td>
+     </tr>
+   <tr>
+     <td>Bathrooms</td>
+     <td><select name="select2"class="form-control" required>
+  	     <option>1</option>
+  	     <option>2</option>
+          <option>3</option>
+           <option>4</option>
+            <option>5</option>
+      </select></td>
+
+   </tr>
+   <tr>
+      <td>Furnishing</td>
+      <td><label for="textfield8"></label>
+        <select name="select4"class="form-control" required>
+          <option>Furnished</option>
+          <option>Semi-Furnished</option>
+          <option>Unfurnished</option>
+      </select></td>
+    </tr>
+
+   <tr>
+  <td>Parking</td>
+  <td>
+    <input name="parking" type="radio" value="Yes" /> Yes
+    <input name="parking" type="radio" value="No" /> No
+  </td>
+</tr>
+	<tr>
+  <td>Kitchen</td>
+  <td>
+    <input name="kitchen" type="radio" value="Yes" /> Yes
+    <input name="kitchen" type="radio" value="No" /> No
+  </td>
+</tr>
+   <tr>
+      <td>Description</td>
+      <td><textarea name="description" id="description"class="form-control" required></textarea></td>
+    </tr>
+    <tr>
+      <td>Latitude</td>
+      <td><label for="textfield7"></label>
+      <input type="text" name="textfield7" id="textfield7" class="form-control"required/></td>
+    </tr>
+    <tr>
+      <td>Longitude</td>
+      <td><label for="textfield7"></label>
+      <input type="text" name="textfield17" id="textfield7" class="form-control"required/></td>
+    </tr>
+   <tr>
+      <td height="54" colspan="2"><div align="center">
+        <div align="center">
+          <input type="submit" id="button" value="Submit" class="btn btn-success"/>
+        </div>
+      </div>
+{#      <label for="textfield8"></label>        <label for="textfield8"></label></td>#}
+    </tr>
+  </table>
+</form>
+{% endblock %}

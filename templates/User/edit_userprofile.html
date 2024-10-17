@@ -1,0 +1,68 @@
+{% extends "User/userhome.html" %}
+{% block body %}
+
+  <form id="form1" name="form1" method="post" enctype="multipart/form-data" action="/myapp/edit_userprofile_post/">
+      {% csrf_token %}
+  <input type="hidden" name="id" value="{{ data.id }}"/>
+  <table class="table table-bordered">
+    <tr>
+      <td width="135">Name</td>
+      <td width="254"><label for="textfield"></label>
+      <input type="text" name="textfield" readonly id="textfield" value="{{ data.name }}" pattern="[A-z/ a-z]*" class="form-control" required/></td>
+    </tr>
+    <tr>
+    <td>Email</td>
+      <td><label for="textfield2"></label>
+      <input type="email" name="textfield2" readonly id="textfield2" value="{{ data.email }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Phone No</td>
+      <td><label for="textfield3"></label>
+      <input type="text" name="textfield3" id="textfield3" value="{{ data.phoneno }}"class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td> <input name="radio" {% if data.gender == "Male" %} checked {% endif %}   type="radio" value="Male" />Male
+    <input name="radio" {% if data.gender == "Female" %} checked {% endif %} type="radio" value="Female" /> Female
+       </td>
+    </tr>
+    <tr>
+      <td>DOB</td>
+      <td><label for="textfield4"></label>
+      <input type="date" name="textfield4" readonly id="textfield10" value="{{ data.dob|date:'Y-m-d' }}"class="form-control" required/></td>
+    </tr>
+  <tr>
+      <td>Place</td>
+      <td><label for="textfield5"></label>
+      <input type="text" name="textfield5" id="textfield4" value="{{ data.place }}"class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>post</td>
+      <td><label for="textfield6"></label>
+      <input type="text" name="textfield6" id="textfield5" value="{{ data.post }}"class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td><label for="textfield7"></label>
+      <input type="text" name="textfield7" id="textfield6"value="{{ data.pincode }}"class="form-control" required  /></td>
+    </tr>
+    <tr>
+      <td>District</td>
+      <td><label for="textfield8"></label>
+      <input type="text" name="textfield8" id="textfield8"  value="{{ data.district }}"class="form-control" required /></td>
+    </tr>
+      <td width="135">Id Proof</td>
+      <td width="254"><label for="fileField"></label>
+          <img src="{{ data.idproof }}"height="200"width="200" alt=""/>
+        <input type="file" name="fileField" readonly  id="fileField" class="form-control"/></td>
+    </tr>
+     <tr>
+      <td height="38" colspan="2"><div align="center">
+        <input type="submit" name="button" id="button" value="Edit" class="btn btn-success" />
+      </div></td>
+    </tr>
+
+  
+  </table>
+</form>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "User/userhome.html" %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/myapp/view_userprofile/">
+    {% csrf_token %}
+    <table class="table table-bordered">
+          <tr>
+              <th>Name:</th>
+              <td>{{ data.name }}</td>
+          </tr>
+          <tr>
+              <th>Email:</th>
+              <td>{{ data.email }}</td>
+          </tr>
+          <tr>
+              <th>Phone No:</th>
+              <td>{{ data.phoneno }}</td>
+          </tr>
+          <tr>
+          <th>Gender:</th>
+              <td>{{ data.gender }}</td>
+          </tr>
+          <tr>
+          <th>DOB:</th>
+              <td>{{ data.dob }}</td>
+          </tr>
+          <tr>
+          <th>Place:</th>
+              <td>{{ data.place }}</td>
+          </tr>
+          <tr>
+          <th>Post:</th>
+              <td>{{ data.post }}</td>
+          </tr>
+          <tr>
+          <th>Pin:</th>
+              <td>{{ data.pincode }}</td>
+          </tr>
+          <tr>
+          <th>District:</th>
+              <td>{{ data.district }}</td>
+          </tr>
+          <tr>
+          <th>Id Proof:</th>
+              <td><img src="{{ data.idproof }}"width="100"height="100"></td>
+          </tr>
+
+          <tr>
+              <td>
+                  <a href="/myapp/edit_userprofile/"class="btn btn-success">Edit</a>
+              </td>
+          </tr>
+
+  </table>
+</form>
+{% endblock %}

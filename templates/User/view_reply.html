@@ -1,0 +1,39 @@
+{% extends "User/userhome.html" %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/myapp/user_reply_post/">
+    {% csrf_token %}
+     <table class="table table-bordered">
+    <tr>
+
+        <td>From</td>
+        <td>
+            <input type="date" name="textfield" id="textfield"class="form-control" required /></td>
+        <td>To</td>
+        <td><input type="date" name="t2"class="form-control" required></td>
+        <td>
+      <input type="submit" name="button" id="button" value="Search"  class="btn btn-success"/></td>
+    </tr>
+     </table>
+<br>
+<table class="table table-bordered">
+    <tr>
+      <td>Sno</td>
+      <td>Date</td>
+      <td>Complaint</td>
+      <td>Reply</td>
+    </tr>
+
+      {% for i in data %}
+    <tr>
+      <td> {{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>{{ i.complaint }}</td>
+        <td>{{ i.reply }}</td>
+    </tr>
+         {% endfor %}
+
+  </table>
+
+</form>
+{% endblock %}

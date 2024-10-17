@@ -1,0 +1,26 @@
+{% extends "House Owner/ownerhome.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/myapp/send_complaint_post/">
+    {% csrf_token %}
+  <table class="table table-bordered">
+    <tr>
+      <th width="86" scope="col">Complaint</th>
+      <th width="336" scope="col"><textarea name="textarea" id="textarea" cols="45" rows="5"></textarea></th>
+    </tr>
+    <tr>
+      <td colspan="2"><blockquote>
+        <blockquote>
+          <blockquote>
+            <p>
+              <center><input type="submit" name="button" id="button" value="Send" class="btn btn-success"/></center>
+            </p>
+          </blockquote>
+        </blockquote>
+      </blockquote></td>
+    </tr>
+  </table>
+  <table width="430" border="1">
+    <tr> </tr>
+  </table>
+</form>
+{% endblock %}
